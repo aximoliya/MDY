@@ -1,14 +1,14 @@
 {
     "interface_version": 2,
-    "name": "MaaDY",
-    "label": "道友请留步",
-    "description": "道友请留步日常自动化",
-    "version": "0.1.0",
+    "name": "MDY",
+    "label": "道友小助手",
+    "github": "https://github.com/aximoliya/MDY",
+    "version": "0.0.1",
+    "description": "道友小助手",
     "controller": [
         {
             "name": "MuMu模拟器",
-            "type": "Adb",
-            "display_short_side": 720
+            "type": "Adb"
         }
     ],
     "resource": [
@@ -19,20 +19,192 @@
             ]
         }
     ],
+    "agent": {
+        "child_exec": "python",
+        "child_args": [
+            "-u",
+            "./../agent/main.py"
+        ]
+    },
     "task": [
         {
-            "name": "收菜",
-            "label": "每日收菜",
+            "name": "启动游戏",
+            "label": "启动游戏",
+            "description": "启动游戏并进入主界面",
             "entry": "打开游戏",
+            "group": [
+                "standalone"
+            ]
+        },
+        {
+            "name": "游戏助手",
+            "label": "游戏助手",
+            "description": "点击游戏助手并执行全部任务",
+            "entry": "点击游戏助手",
+            "group": [
+                "daily"
+            ]
+        },
+        {
+            "name": "活动",
+            "label": "活动",
+            "description": "活动相关任务（月卡、体力、签到）",
+            "entry": "点击活动按钮",
+            "option": [
+                "领取月卡",
+                "领取体力",
+                "签到"
+            ],
+            "group": [
+                "daily"
+            ]
+        },
+        {
+            "name": "日常",
+            "label": "日常",
+            "description": "执行所有日常任务",
+            "entry": "点击日常",
             "group": [
                 "daily"
             ]
         }
     ],
+    "option": {
+        "领取月卡": {
+            "type": "switch",
+            "label": "领取月卡",
+            "description": "是否领取月卡奖励",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "点击超值月卡": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "点击超值月卡": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "领取体力": {
+            "type": "switch",
+            "label": "领取体力",
+            "description": "是否领取体力",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "点击水煮唐僧": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "点击水煮唐僧": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "签到": {
+            "type": "switch",
+            "label": "签到",
+            "description": "是否执行签到",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "点击签到": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "点击签到": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        }
+    },
     "group": [
+        {
+            "name": "standalone",
+            "label": "独立任务"
+        },
         {
             "name": "daily",
             "label": "日常任务"
+        }
+    ],
+    "preset": [
+        {
+            "name": "完整日常",
+            "description": "启动游戏 → 游戏助手 → 活动 → 日常",
+            "task": [
+                {
+                    "name": "启动游戏"
+                },
+                {
+                    "name": "游戏助手"
+                },
+                {
+                    "name": "活动",
+                    "option": {
+                        "领取月卡": "Yes",
+                        "领取体力": "Yes",
+                        "签到": "Yes"
+                    }
+                },
+                {
+                    "name": "日常"
+                }
+            ]
+        },
+        {
+            "name": "仅活动",
+            "description": "启动游戏 → 活动（全勾选）",
+            "task": [
+                {
+                    "name": "启动游戏"
+                },
+                {
+                    "name": "活动",
+                    "option": {
+                        "领取月卡": "Yes",
+                        "领取体力": "Yes",
+                        "签到": "Yes"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "快速日常",
+            "description": "游戏助手 + 日常（假设游戏已启动）",
+            "task": [
+                {
+                    "name": "游戏助手"
+                },
+                {
+                    "name": "日常"
+                }
+            ]
         }
     ]
 }
