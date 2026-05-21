@@ -1,0 +1,123 @@
+{
+    "全部执行": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    306,
+                    887,
+                    405,
+                    374
+                ],
+                "expected": [
+                    "全部执行"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "确定执行"
+        ]
+    },
+    "点击游戏助手": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    28,
+                    39,
+                    691,
+                    676
+                ],
+                "template": [
+                    "游戏助手.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "全部执行"
+        ]
+    },
+    "确定执行": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    108,
+                    668,
+                    510,
+                    211
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "游戏助手完成"
+        ]
+    },
+    "游戏助手完成": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    88,
+                    833,
+                    555,
+                    408
+                ],
+                "lower": [
+                    [
+                        58,
+                        166,
+                        230
+                    ]
+                ],
+                "upper": [
+                    [
+                        90,
+                        224,
+                        250
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "游戏助手放回主页面"
+        ]
+    },
+    "游戏助手放回主页面": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    451,
+                    24,
+                    269,
+                    184
+                ],
+                "template": [
+                    "游戏助手返回主页面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "进入主界面"
+        ]
+    }
+}

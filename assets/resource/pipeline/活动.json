@@ -1,0 +1,334 @@
+{
+    "点击签到": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    118,
+                    437,
+                    414
+                ],
+                "expected": [
+                    "签到"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "领取签到奖励"
+        ]
+    },
+    "领取签到奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    64,
+                    458,
+                    603,
+                    666
+                ],
+                "expected": [
+                    "可签到"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击首页"
+        ]
+    },
+    "点击首页": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    10,
+                    1179,
+                    81,
+                    101
+                ],
+                "expected": [
+                    "首页"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "月卡领取完成": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "expected": "今日已领",
+                        "recognition": "ocr",
+                        "roi": [
+                            57,
+                            986,
+                            269,
+                            130
+                        ]
+                    },
+                    {
+                        "expected": "今日已领",
+                        "recognition": "ocr",
+                        "roi": [
+                            435,
+                            1009,
+                            186,
+                            91
+                        ]
+                    }
+                ]
+            }
+        },
+        "next": [
+            "点击首页"
+        ]
+    },
+    "月卡领取成功": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    137,
+                    679,
+                    434,
+                    223
+                ],
+                "expected": [
+                    "点击屏幕继续游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击日常活动": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    4,
+                    93,
+                    507,
+                    513
+                ],
+                "expected": [
+                    "日常活动"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]点击超值月卡",
+            "[JumpBack]点击水煮唐僧"
+        ]
+    },
+    "点击活动按钮": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    9,
+                    28,
+                    708,
+                    471
+                ],
+                "expected": "活动"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击日常活动",
+            "点击签到"
+        ]
+    },
+    "点击超值月卡": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    12,
+                    23,
+                    708,
+                    333
+                ],
+                "expected": [
+                    "超值月卡"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "月卡领取完成",
+            "[JumpBack]领取小月卡",
+            "[JumpBack]领取大月卡",
+            "[JumpBack]月卡神石领取"
+        ]
+    },
+    "领取大月卡": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    435,
+                    1009,
+                    186,
+                    91
+                ],
+                "expected": [
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "月卡领取成功"
+        ]
+    },
+    "领取小月卡": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    57,
+                    986,
+                    269,
+                    130
+                ],
+                "expected": [
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "月卡领取成功"
+        ]
+    },
+    "点击水煮唐僧": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    46,
+                    68,
+                    629,
+                    178
+                ],
+                "expected": [
+                    "水煮唐僧"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "调味体力领取",
+            "体力1未到时间"
+        ]
+    },
+    "调味体力领取": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    480,
+                    835,
+                    233,
+                    291
+                ],
+                "lower": [
+                    [
+                        247,
+                        238,
+                        156
+                    ]
+                ],
+                "upper": [
+                    [
+                        250,
+                        247,
+                        227
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "月卡神石领取": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    34,
+                    221,
+                    669,
+                    288
+                ],
+                "lower": [
+                    [
+                        255,
+                        221,
+                        210
+                    ]
+                ],
+                "upper": [
+                    [
+                        255,
+                        231,
+                        222
+                    ]
+                ],
+                "connected": true,
+                "count": 3
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "月卡领取成功"
+        ]
+    },
+    "体力1未到时间": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    25,
+                    850,
+                    206,
+                    263
+                ],
+                "expected": [
+                    "未到时间"
+                ]
+            }
+        }
+    }
+}

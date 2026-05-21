@@ -1,0 +1,56 @@
+{
+    "file_config": {
+        "prefix": "",
+        "lastSyncTime": 1778089289162,
+        "isModifiedExternally": false,
+        "filePath": "D:\\ma\\MFW\\MDY\\assets\\resource\\pipeline\\daily.json",
+        "separatedConfigPath": "D:\\ma\\MFW\\MDY\\assets\\resource\\pipeline\\.daily.mpe.json",
+        "savedViewport": {
+            "x": 35,
+            "y": 548,
+            "zoom": 0.43
+        },
+        "filename": "新建Pipeline2",
+        "version": "v1.5.2"
+    },
+    "node_configs": {
+        "全部执行": {
+            "position": {
+                "x": 332,
+                "y": 41
+            }
+        },
+        "点击游戏助手": {
+            "position": {
+                "x": -24,
+                "y": 21
+            }
+        },
+        "确定执行": {
+            "position": {
+                "x": 652,
+                "y": 41
+            }
+        },
+        "游戏助手完成": {
+            "position": {
+                "x": 1005,
+                "y": 20
+            }
+        },
+        "游戏助手放回主页面": {
+            "position": {
+                "x": 1347,
+                "y": 22
+            }
+        }
+    },
+    "external_nodes": {
+        "进入主界面": {
+            "position": {
+                "x": 1709,
+                "y": 80
+            }
+        }
+    }
+}

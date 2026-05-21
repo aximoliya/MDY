@@ -1,0 +1,76 @@
+{
+    "关闭弹窗": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    264,
+                    8,
+                    454,
+                    801
+                ],
+                "template": [
+                    "CloseButton/"
+                ],
+                "green_mask": true,
+                "threshold": 0.6
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开游戏": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.woobest.blqyd"
+            }
+        },
+        "timeout": 60000,
+        "next": [
+            "[JumpBack]关闭弹窗",
+            "[JumpBack]进入游戏",
+            "进入主界面"
+        ]
+    },
+    "进入主界面": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1,
+                    2,
+                    718,
+                    718
+                ],
+                "template": [
+                    "游戏助手.png"
+                ],
+                "threshold": [
+                    0.953
+                ]
+            }
+        }
+    },
+    "进入游戏": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    159,
+                    963,
+                    431,
+                    120
+                ],
+                "expected": [
+                    "进入游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 120000
+    }
+}

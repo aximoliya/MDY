@@ -1,0 +1,59 @@
+{
+    "点击日常": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    29,
+                    25,
+                    688,
+                    575
+                ],
+                "template": [
+                    "日常模板.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击日常任务领取"
+        ]
+    },
+    "点击日常任务领取": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    435,
+                    361,
+                    285,
+                    753
+                ],
+                "expected": [
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "领取活跃度奖励"
+        ]
+    },
+    "领取活跃度奖励": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "活跃度奖励.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}
