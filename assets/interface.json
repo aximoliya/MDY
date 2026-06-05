@@ -22,8 +22,8 @@
     "agent": {
         "child_exec": "python",
         "child_args": [
-            "-u",
-            "./../agent/main.py"
+            "agent/main.py",
+            "--test-mode"
         ]
     },
     "task": [

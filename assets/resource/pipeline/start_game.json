@@ -30,25 +30,65 @@
         "timeout": 60000,
         "next": [
             "[JumpBack]关闭弹窗",
+            "[JumpBack]领取主题活动礼包",
             "[JumpBack]进入游戏",
             "进入主界面"
         ]
     },
-    "进入主界面": {
+    "识别活动颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    3,
+                    11,
+                    716,
+                    350
+                ],
+                "lower": [
+                    [
+                        135,
+                        61,
+                        25
+                    ]
+                ],
+                "upper": [
+                    [
+                        135,
+                        61,
+                        25
+                    ]
+                ],
+                "connected": true
+            }
+        }
+    },
+    "识别游戏助手": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    1,
-                    2,
-                    718,
-                    718
+                    9,
+                    11,
+                    708,
+                    615
                 ],
                 "template": [
                     "游戏助手.png"
                 ],
                 "threshold": [
-                    0.953
+                    0.9
+                ]
+            }
+        }
+    },
+    "进入主界面": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别游戏助手",
+                    "识别活动颜色"
                 ]
             }
         }
@@ -72,5 +112,25 @@
             "type": "Click"
         },
         "timeout": 120000
+    },
+    "领取主题活动礼包": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    59,
+                    543,
+                    622,
+                    642
+                ],
+                "template": [
+                    "主题活动礼包.png",
+                    "主题活动礼包金.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

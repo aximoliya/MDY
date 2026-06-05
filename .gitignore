@@ -453,3 +453,6 @@ tools/ImageCropper/**/*.png
 config
 debug
 CLAUDE.md
+AGENTS.md
+
+assets/resource/pipeline/*.mpe.json
