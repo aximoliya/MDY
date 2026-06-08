@@ -1,4 +1,23 @@
 {
+    "点击确认更新": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    392,
+                    705,
+                    598
+                ],
+                "expected": [
+                    "确认更新"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "关闭弹窗": {
         "recognition": {
             "type": "TemplateMatch",
@@ -29,10 +48,11 @@
         },
         "timeout": 60000,
         "next": [
+            "进入主界面",
             "[JumpBack]关闭弹窗",
             "[JumpBack]领取主题活动礼包",
             "[JumpBack]进入游戏",
-            "进入主界面"
+            "[JumpBack]点击确认更新"
         ]
     },
     "识别活动颜色": {
@@ -110,8 +130,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "timeout": 120000
+        }
     },
     "领取主题活动礼包": {
         "recognition": {

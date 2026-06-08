@@ -1,67 +1,4 @@
 {
-    "点击签到": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    26,
-                    118,
-                    437,
-                    414
-                ],
-                "expected": [
-                    "签到"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "领取签到奖励"
-        ]
-    },
-    "领取签到奖励": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    64,
-                    458,
-                    603,
-                    666
-                ],
-                "expected": [
-                    "可签到"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "点击首页"
-        ]
-    },
-    "点击首页": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    10,
-                    1179,
-                    81,
-                    101
-                ],
-                "expected": [
-                    "首页"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
     "月卡领取完成": {
         "recognition": {
             "type": "And",
@@ -329,6 +266,69 @@
                     "未到时间"
                 ]
             }
+        }
+    },
+    "点击签到": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    118,
+                    437,
+                    414
+                ],
+                "expected": [
+                    "签到"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "领取签到奖励"
+        ]
+    },
+    "领取签到奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    64,
+                    458,
+                    603,
+                    666
+                ],
+                "expected": [
+                    "可签到"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击首页"
+        ]
+    },
+    "点击首页": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    10,
+                    1179,
+                    81,
+                    101
+                ],
+                "expected": [
+                    "首页"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
         }
     }
 }

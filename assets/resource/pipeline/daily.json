@@ -18,12 +18,13 @@
             "type": "Click"
         },
         "next": [
-            "确定执行"
+            "游戏助手完成",
+            "[JumpBack]确定执行"
         ]
     },
     "点击游戏助手": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
                     28,
@@ -31,8 +32,8 @@
                     691,
                     676
                 ],
-                "template": [
-                    "游戏助手.png"
+                "expected": [
+                    "游戏助手"
                 ]
             }
         },
@@ -60,14 +61,11 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "游戏助手完成"
-        ]
+        }
     },
     "游戏助手完成": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
                 "roi": [
                     88,
@@ -75,19 +73,11 @@
                     555,
                     408
                 ],
-                "lower": [
-                    [
-                        58,
-                        166,
-                        230
-                    ]
+                "template": [
+                    "游戏助手完成按钮.png"
                 ],
-                "upper": [
-                    [
-                        90,
-                        224,
-                        250
-                    ]
+                "threshold": [
+                    0.8
                 ]
             }
         },
